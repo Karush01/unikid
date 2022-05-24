@@ -16,7 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('front.main');
 });
-
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/course_plans', 'HomeController@course_plans');
+Route::get('/teachers', 'HomeController@teachers');
+Route::get('/course_program', 'HomeController@course_program');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+

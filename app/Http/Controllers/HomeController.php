@@ -25,4 +25,16 @@ class HomeController extends Controller
     {
         return view('home');
     }
+    public function course_plans()
+    {
+        return view('front.course_plans');
+    }
+    public function teachers()
+    {
+        return view('front.teachers');
+    }
+    public function course_program()
+    {
+        return view('front.course_program');
+    }
 }
