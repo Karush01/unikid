@@ -85,12 +85,12 @@ for (var i = 0; i < tabNavs.length; i++) {
 
       if (activeTabAttr === contentAttr) {
         tabNavs[j].classList.add("active");
-        tabPanes[j].classList.add("active"); 
+        tabPanes[j].classList.add("active");
       } else {
         tabNavs[j].classList.remove("active");
         tabPanes[j].classList.remove("active");
       }
-    };
+    }
   });
 }
 
