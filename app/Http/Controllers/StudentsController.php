@@ -17,15 +17,29 @@ class StudentsController extends Controller
     public function editStudentAccount()
     {
         $user = Auth::user();
-        $student_update = Student::where('user_id', $user->id)->get();
-        return view('dashboard.students.s_account_settings',['data'=>$student_update]);
+        $student_update = Student::where('user_id', $user->id)->first();
+        if (!empty($student_update)){
+            $data = $student_update;
+        }else{
+            $data = '0';
+        }
+
+        return view('dashboard.students.s_account_settings',['data'=>$data]);
     }
 
     public function updateStudentProfileData(Request $request)
     {
         $user = Auth::user();
         $form_data = $request->input('form_data');
-        $student_update = Student::where('user_id', $user->id)->update(
+//        $dataNewArr = [];
+//        foreach ($form_data as $item) {
+//            if (empty($item)){
+//                $item = '';
+//            }
+//            array_push($dataNewArr,$item);
+//        }
+//        var_dump($dataNewArr);die;
+        $student_update = Student::where('user_id', $user->id)->updateOrCreate(
             array(
                 'name' => $form_data['name'],
                 'email' => $form_data['email'],

@@ -26,9 +26,10 @@ Route::group(['middleware' => ['auth']], function () {
 //    teachers
     Route::group(['prefix' => 'teacher'], function () {
         Route::get('/my-account', 'TeachersController@getTeacherDashboardData');
-        Route::get('/student', 'TeachersController@getStudentInformation');
+        Route::get('/student/{id}', 'TeachersController@getStudentInformation')->name('student');
         Route::get('/balance', 'TeachersController@getInformationAboutBalance');
         Route::get('/account-settings', 'TeachersController@editTeacherAccount');
+        Route::post('/edit-account-data', 'TeachersController@updateTeacherProfileData');
     });
 
 //    students
@@ -37,7 +38,7 @@ Route::group(['middleware' => ['auth']], function () {
 //        Route::get('/student', 'TeachersController@getStudentInformation');
         Route::get('/balance', 'StudentsController@getInformationAboutBalance');
         Route::get('/account-settings', 'StudentsController@editStudentAccount');
-        Route::post('/edit-account-data', 'StudentsController@updateStudentProfileData');
+        Route::get('/edit-account-data', 'StudentsController@updateStudentProfileData');
     });
 });
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');

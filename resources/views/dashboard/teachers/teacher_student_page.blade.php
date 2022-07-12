@@ -4,7 +4,7 @@
     <section id="lk-student">
         <div class="wrp">
             <div class="reserv">
-                <h2 class="header-sec">Ученик: Daniil</h2>
+                <h2 class="header-sec">Ученик: {{$student->name}}</h2>
             </div>
             <div class="profile-link">
                 <h2 class="header-sec">Классная комната</h2>
